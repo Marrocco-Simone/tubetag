@@ -1,0 +1,27 @@
+{
+  "name": "tubetag",
+  "version": "0.1.0",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot src/server/index.ts",
+    "types": "tsc --noEmit",
+    "compile": "bun run compile:darwin-arm64 && bun run compile:darwin-x64 && bun run compile:linux-x64 && bun run compile:windows-x64",
+    "compile:darwin-arm64": "bun build --compile --target=bun-darwin-arm64 src/server/index.ts --outfile dist/tubetag-darwin-arm64",
+    "compile:darwin-x64": "bun build --compile --target=bun-darwin-x64 src/server/index.ts --outfile dist/tubetag-darwin-x64",
+    "compile:linux-x64": "bun build --compile --target=bun-linux-x64 src/server/index.ts --outfile dist/tubetag-linux-x64",
+    "compile:windows-x64": "bun build --compile --target=bun-windows-x64 src/server/index.ts --outfile dist/tubetag-windows-x64.exe"
+  },
+  "dependencies": {
+    "music-metadata": "^12.2.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
